@@ -47,12 +47,12 @@ final class PaypalOrderStatus extends Enum
     protected static function boot()
     {
         static::$labels = [
-            self::CREATED => __('The order was created'),
-            self::SAVED => __('The order is in progress, no purchase was made yet'),
-            self::APPROVED => __('The customer approved the payment through PayPal'),
-            self::VOIDED => __('All purchase units in the order are voided'),
-            self::COMPLETED => __('The payment was authorized for the order'),
-            self::PAYER_ACTION_REQUIRED => __('The order requires an action from the payer (e.g. 3DS authentication)'),
+            self::CREATED => __('backoffice.paypal-status.The order was created'),
+            self::SAVED => __('backoffice.paypal-status.The order is in progress, no purchase was made yet'),
+            self::APPROVED => __('backoffice.paypal-status.The customer approved the payment through PayPal'),
+            self::VOIDED => __('backoffice.paypal-status.All purchase units in the order are voided'),
+            self::COMPLETED => __('backoffice.paypal-status.The payment was authorized for the order'),
+            self::PAYER_ACTION_REQUIRED => __('backoffice.paypal-status.The order requires an action from the payer (e.g. 3DS authentication)'),
         ];
     }
 }
