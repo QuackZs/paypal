@@ -20,6 +20,7 @@ use Vanilo\Payment\Models\PaymentProxy;
 use Vanilo\Paypal\Exceptions\PaymentNotFoundException;
 use Vanilo\Paypal\Messages\PaypalPaymentResponse;
 use Vanilo\Paypal\Models\Order;
+use Vanilo\Paypal\Models\PaypalOrderStatus;
 use Vanilo\Paypal\Repository\OrderRepository;
 
 final class ResponseFactory
@@ -61,6 +62,10 @@ final class ResponseFactory
 
         if ($order->hasPayments()) {
             $transactionId = $order->payments()[0]->id;
+        }
+
+        if(isset($request->status) && $request->status == "cancelado"){
+            $order->status = PaypalOrderStatus::VOIDED();
         }
 
         return new PaypalPaymentResponse(
