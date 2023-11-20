@@ -48,7 +48,8 @@ class OrderRepository
             'intent' => 'CAPTURE',
             'purchase_units' => [
                 [
-                    'reference_id' => $payment->payable->number,
+                    'description' => $payment->payable->number,
+                    'soft_descriptor' => $payment->payable->number,
                     'amount' => [
                         'currency_code' => $payment->getCurrency(),
                         'value' => $payment->getAmount()
